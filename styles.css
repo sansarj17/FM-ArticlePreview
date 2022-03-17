@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+:root {
+    --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+    --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+    --GrayishBlue: hsl(212, 23%, 69%);
+    --LightGrayishBlue: hsl(210, 46%, 95%);
+
+    /* font-family: 'Manrope', sans-serif; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    background-color: var(--LightGrayishBlue);
+}
+
+h1,
+h3 {
+    color: var(--VeryDarkGrayishBlue);
+}
+p {
+    color: var(--DesaturatedDarkBlue);
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    /* overflow: hidden; */
+}
+
+.wrapper {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    border-radius: 10px;
+	box-shadow: 5px 15px 25px rgba(0,0,0,0.2);
+}
+
+.img-component {
+    /* width: 100%; */
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+}
+.img-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.img-component img {
+    max-width: 100%;
+    height: 100%;
+    transform: scale(1);
+    object-fit: cover;
+}
+
+.text-component {
+    padding: 2.5rem;
+    position: relative;
+}
+.text-component h1 {
+    font-size: 25px;
+    margin-bottom: 0.9375rem;
+}
+
+.bottom-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.875rem;
+    padding-right: 15px;
+}
+
+.avatar {
+    display: flex;
+}
+
+.bottom-text .avatar img {
+    border-radius: 100%;
+    width: 50px;
+    margin-right: 15px;
+}
+
+.person-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.person-info h3 {
+    font-size: 16px;
+}
+.person-info p {
+    font-size: 14px;
+}
+
+.share {
+    background-color: var(--LightGrayishBlue);
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    position: relative;
+    transition: all 0.2s;
+    transition-timing-function: cubic-bezier(0, 0.44, 0.53, 1.01);
+}
+.share:hover {
+    transform: scale(1.25);
+}
+
+.share img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
+.pop-up {
+    opacity: 0;
+    background-color: var(--VeryDarkGrayishBlue);
+    position: absolute;
+    right: -50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+    height: 70px;
+    width: 320px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0 40px;
+    justify-content: space-between;
+    transition: all 0.5s;
+    transition-timing-function: cubic-bezier(0, 0.44, 0.53, 1.01);
+}
+
+.pop-up h3 {
+    color: rgba(236, 242, 248, 0.5);
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 10px;
+    margin-right: 15px;
+}
+.pop-up img {
+    margin-right: 20px;
+    width: 25px;
+    height: 25px;
+    opacity: 0.8;
+    transition: all 0.2s;
+    transition-timing-function: cubic-bezier(0, 0.44, 0.53, 1.01);
+}
+.pop-up img:hover {
+    transform: scale(1.25);
+    opacity: 1;
+}
+
+.text-component .pop-up-active {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        margin: auto;
+        width: 360px;
+    }
+    main {
+        /* height: auto; */
+        margin: 0 auto;
+    }
+    .wrapper {
+        grid-template-columns: 1fr;
+        border-radius: 10px;
+        /* grid-auto-rows: auto; */
+    }
+    .img-component {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .text-component {
+        padding: 26px;
+        position: relative;
+    }
+    .text-component h1 {
+        font-size: 20px;
+        margin-bottom: 0.9375rem;
+    }
+    .share {
+        position: relative;
+        z-index: 2;
+    }
+
+    .pop-up {
+        opacity: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        transform: translate(0, 0);
+        height: 85px;
+        width: 100%;
+        border-radius: 0 0 10px 10px;
+        padding: 0 100px 0 26px;
+        justify-content: space-between;
+    }
+    .pop-up h3 {
+        font-size: 16px;
+    }
+    .bottom-text .share-mobile-active {
+        transform: translateY(25%) scale(1.2);
+    }
+    .text-component .pop-up-active {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
